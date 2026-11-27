@@ -1,98 +1,54 @@
 # VeloceBikes
 
-Projeto acadêmico de interface web para uma loja fictícia especializada em bicicletas de alta performance e mobilidade urbana. O site apresenta categorias Mountain Bike, Speed/Estrada e Urbana/E-Bike.
+## Sobre o projeto
 
-## Objetivo
+A **VeloceBikes** é um site desenvolvido como projeto acadêmico para representar a página de uma loja fictícia de bicicletas. A proposta é apresentar diferentes modelos e modalidades de ciclismo por meio de uma interface organizada, moderna e de fácil navegação.
 
-Construir uma experiência de navegação para explorar um catálogo de bicicletas, consultar características dos produtos e simular interações comuns de uma loja virtual, aplicando princípios de UI/UX e acessibilidade.
+O site reúne bicicletas voltadas para trilhas, ciclismo de estrada e mobilidade urbana. Seu conteúdo apresenta características dos produtos e informações sobre os serviços oferecidos pela marca fictícia.
 
-## Tecnologias
+## Sobre o site
 
-- **HTML5** para a estrutura e organização semântica do conteúdo.
-- **CSS3** para layout responsivo, identidade visual, temas e estados de interface.
-- **JavaScript** para interações, filtros, carrossel, carrinho e modais.
-- **Google Fonts (Inter)** para tipografia.
+A página inicial apresenta destaques de modelos e categorias de bicicletas. Na sequência, o visitante pode conhecer o catálogo, visualizar informações dos produtos e explorar as demais seções do site.
 
-## Estrutura do projeto
+### Principais seções
 
-```text
-velocybikes/
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-```
+- **Destaques:** área inicial com chamadas para diferentes linhas de bicicletas.
+- **Catálogo de bicicletas:** apresentação dos modelos disponíveis, com informações e especificações.
+- **Por que escolher a VeloceBikes?:** seção que apresenta os diferenciais e serviços associados à loja fictícia.
+- **Contato:** formulário para simular o envio de uma mensagem à equipe.
+- **Rodapé:** reúne informações institucionais e opções relacionadas à navegação e acessibilidade.
 
-## Como executar
+## Funcionalidades
 
-1. Baixe ou clone este repositório.
-2. Mantenha `index.html`, `style.css` e `script.js` na mesma pasta.
-3. Abra `index.html` em um navegador moderno.
+O site conta com recursos interativos para tornar a navegação mais completa:
 
-Não é necessário instalar dependências ou executar um servidor para visualizar a interface estática.
-
-## Recursos implementados
-
-- Carrossel de destaques com controles de navegação, indicadores e troca automática.
-- Catálogo de bicicletas organizado em cartões.
-- Abas para filtrar por categoria.
-- Campo de pesquisa em tempo real.
-- Ordenação de produtos por preço.
-- Exibição de ficha técnica em janela modal.
-- Carrinho demonstrativo com inclusão, remoção e cálculo do total.
-- Modal de acesso/conta demonstrativo.
-- Formulário de contato com validação básica no navegador.
+- Carrossel de destaques com controles de navegação.
+- Filtros por categoria de bicicleta.
+- Pesquisa de modelos no catálogo.
+- Ordenação dos produtos por preço.
+- Janela com informações técnicas de cada bicicleta.
+- Carrinho demonstrativo, com inclusão e remoção de produtos.
+- Janela de acesso do ciclista, apresentada como demonstração visual.
+- Formulário de contato com validação básica.
 - Alternância entre tema claro e escuro.
-- Controles para aumentar, diminuir e restaurar o tamanho da fonte.
-- Opção de alto contraste.
-- Link para pular diretamente ao conteúdo principal.
-- Estrutura adaptável a telas menores e navegação com foco visível.
+- Opções de ajuste do tamanho da fonte e alto contraste.
+- Layout adaptável a diferentes tamanhos de tela.
 
-## Acessibilidade
+## Tecnologias utilizadas
 
-A interface foi construída considerando práticas associadas às Diretrizes de Acessibilidade para Conteúdo Web (WCAG), incluindo:
+- **HTML5:** estrutura e organização do conteúdo.
+- **CSS3:** apresentação visual, layout e adaptação para diferentes telas.
+- **JavaScript:** funcionamento dos elementos interativos.
+- **Google Fonts (Inter):** tipografia utilizada na interface.
 
-- Uso de elementos semânticos e rótulos acessíveis.
-- Textos alternativos nas imagens.
-- Estados ARIA em controles interativos.
-- Indicador de foco visível.
-- Link para pular ao conteúdo principal.
-- Controles de tamanho de fonte, contraste e tema.
-- Cores definidas por variáveis CSS para facilitar manutenção.
+## Como visualizar
 
-A conformidade deve ser confirmada com testes manuais e ferramentas de avaliação; a presença desses recursos, isoladamente, não representa certificação WCAG.
+Para visualizar o projeto, baixe os arquivos e mantenha `index.html`, `style.css` e `script.js` na mesma pasta. Em seguida, abra o arquivo `index.html em um navegador.
 
-## Identidade visual e paleta de cores
+## Observação
 
-A folha de estilos define como cores principais:
-
-| Cor | Código | Intenção visual |
-|---|---|---|
-| Azul petróleo | `#0F4C5C` | Confiança, estabilidade e tecnologia |
-| Laranja queimado | `#C84B11` | Energia, ação e destaque |
-| Verde esmeralda | `#1B6B50` | Sustentabilidade e segurança |
-
-Também são utilizadas cores neutras para fundos, textos e bordas. O CSS possui variáveis específicas para o tema escuro e para o modo de alto contraste.
-
-## Observações sobre o funcionamento
-
-Este repositório contém uma demonstração de interface no lado do navegador. O login apenas apresenta uma confirmação visual, o carrinho não realiza pagamento e o formulário de contato não envia mensagens para um serviço externo. Para uso em produção, seria necessário integrar autenticação, persistência de pedidos, pagamentos e envio de formulários a serviços apropriados.
-
-## Requisitos acadêmicos e documentação
-
-O projeto foi organizado para apoiar a apresentação dos elementos solicitados na atividade de Desenvolvimento de Interfaces: cartões, abas de pesquisa, formulário de contato, carrossel, imagens, cartões explicativos, modo claro/escuro, rodapé e recursos de acessibilidade.
-
-O relatório acadêmico deve complementar este README com capturas de tela e uma análise própria sobre WCAG, heurísticas de Nielsen, UI/UX, branding, psicologia das cores, contraste e processo de desenvolvimento, conforme as orientações da atividade. A atividade também solicita que a redação sobre esses conceitos seja desenvolvida sem uso de IA.
-
-## Créditos e referências
-
-- [W3C – Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/)
-- [MDN Web Docs – HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-- [MDN Web Docs – CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
-- [MDN Web Docs – JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-- [Google Fonts – Inter](https://fonts.google.com/specimen/Inter)
-- Imagens ilustrativas carregadas por URLs do [Unsplash](https://unsplash.com/).
+A VeloceBikes é uma loja fictícia criada para fins acadêmicos. As funções de acesso, carrinho e contato são demonstrativas e não estão conectadas a serviços reais de autenticação, pagamento ou envio de mensagens.
 
 ---
 
-**Projeto acadêmico — Desenvolvimento de Interfaces 2/2026.**
+**Projeto acadêmico — VeloceBikes.**
