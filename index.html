@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VeloceBikes - E-commerce especializado em bicicletas de alta performance (MTB, Speed, Urbanas e E-Bikes) com acessibilidade WCAG 2.1 AA.">
+    <title>VeloceBikes | Alta Performance e Mobilidade Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Link de Pular para Conteúdo (WCAG 2.4.1) -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- Barra Superior de Acessibilidade WCAG 2.1 AA -->
+    <div class="a11y-bar" role="region" aria-label="Ferramentas de Acessibilidade">
+        <div class="container a11y-container">
+            <span class="a11y-label">Acessibilidade WCAG 2.1 AA:</span>
+            <div class="a11y-controls">
+                <button id="theme-toggle" class="a11y-btn" aria-pressed="false" title="Alternar entre Modo Claro e Modo Escuro">
+                    <span id="theme-icon" aria-hidden="true">🌙</span>
+                    <span id="theme-text">Modo Escuro</span>
+                </button>
+                <button id="font-decrease" class="a11y-btn" aria-label="Diminuir tamanho da fonte" title="Diminuir fonte">A-</button>
+                <button id="font-reset" class="a11y-btn" aria-label="Restaurar tamanho padrão da fonte" title="Fonte padrão">A</button>
+                <button id="font-increase" class="a11y-btn" aria-label="Aumentar tamanho da fonte" title="Aumentar fonte">A+</button>
+                <button id="contrast-toggle" class="a11y-btn" aria-pressed="false" title="Ativar modo de alto contraste">
+                    Alto Contraste
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cabeçalho Fixo -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo" aria-label="VeloceBikes Página Inicial">
+                <span class="logo-icon" aria-hidden="true">🚲</span>
+                <span class="logo-text">Veloce<strong>Bikes</strong></span>
+            </a>
+
+            <nav class="main-nav" aria-label="Navegação Principal">
+                <ul>
+                    <li><a href="#destaques">Destaques</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#diferenciais">Diferenciais</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="open-login-btn" class="btn btn-outline" aria-haspopup="dialog">
+                    <span id="user-greeting">Entrar / Conta</span>
+                </button>
+                <button id="open-cart-btn" class="btn btn-primary" aria-haspopup="dialog" aria-label="Abrir carrinho de compras com 0 itens">
+                    🛒 Carrinho (<span id="cart-count">0</span>)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Seção 1: Carrossel de Destaques -->
+        <section id="destaques" class="carousel-section" aria-roledescription="carrossel" aria-label="Destaques e Promoções">
+            <div class="carousel-container">
+                <div class="carousel-slides" id="carousel-slides">
+                    <!-- Slide 1 -->
+                    <article class="carousel-slide active" aria-hidden="false">
+                        <img src="https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=1400&q=80" alt="Ciclista percorrendo trilha em montanha com bicicleta Mountain Bike Pro">
+                        <div class="slide-overlay">
+                            <div class="container">
+                                <span class="badge">Lançamento 2026</span>
+                                <h1>Domine Qualquer Terreno com a Linha Trail X-Pro</h1>
+                                <p>Quadro em fibra de carbono T800 ultraleve, suspensão a ar de 140mm e transmissão eletrônica de 12 velocidades.</p>
+                                <a href="#catalogo" class="btn btn-accent">Explorar Mountain Bikes</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 2 -->
+                    <article class="carousel-slide" aria-hidden="true">
+                        <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1400&q=80" alt="Bicicleta de estrada aerodinâmica estacionada ao pôr do sol">
+                        <div class="slide-overlay">
+                            <div class="container">
+                                <span class="badge">Alta Velocidade</span>
+                                <h1>Aerodinâmica Pura na Estrada: Série AeroCarbon</h1>
+                                <p>Projetada em túnel de vento para máxima eficiência energética em longas distâncias e competições.</p>
+                                <a href="#catalogo" class="btn btn-accent">Ver Modelos Speed</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 3 -->
+                    <article class="carousel-slide" aria-hidden="true">
+                        <img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=1400&q=80" alt="Bicicleta urbana elétrica moderna em ciclovia arborizada">
+                        <div class="slide-overlay">
+                            <div class="container">
+                                <span class="badge">Mobilidade Urbana</span>
+                                <h1>Transforme Seu Trajeto Diário com E-Bikes Inteligentes</h1>
+                                <p>Autonomia de até 90 km, bateria integrada removível e iluminação LED automática.</p>
+                                <a href="#catalogo" class="btn btn-accent">Conhecer Urban & E-Bikes</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <button class="carousel-control prev" id="prev-slide" aria-label="Slide anterior">&#10094;</button>
+                <button class="carousel-control next" id="next-slide" aria-label="Próximo slide">&#10095;</button>
+
+                <div class="carousel-indicators" role="tablist" aria-label="Selecionar slide">
+                    <button class="indicator active" data-slide="0" role="tab" aria-selected="true" aria-label="Slide 1: Mountain Bike"></button>
+                    <button class="indicator" data-slide="1" role="tab" aria-selected="false" aria-label="Slide 2: Speed"></button>
+                    <button class="indicator" data-slide="2" role="tab" aria-selected="false" aria-label="Slide 3: E-Bikes"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2: Abas de Pesquisa e Catálogo de Bicicletas -->
+        <section id="catalogo" class="catalog-section">
+            <div class="container">
+                <header class="section-header">
+                    <h2>Catálogo de Bicicletas</h2>
+                    <p>Filtre por modalidade, ordene por preço ou pesquise pelo modelo ideal para o seu perfil de pedal.</p>
+                </header>
+
+                <!-- Barra de Busca, Abas de Categoria e Ordenação -->
+                <div class="filter-bar">
+                    <div class="category-tabs" role="tablist" aria-label="Filtrar bicicletas por categoria">
+                        <button class="tab-btn active" role="tab" aria-selected="true" data-category="todas">Todas (6)</button>
+                        <button class="tab-btn" role="tab" aria-selected="false" data-category="mtb">Mountain Bike</button>
+                        <button class="tab-btn" role="tab" aria-selected="false" data-category="speed">Speed / Estrada</button>
+                        <button class="tab-btn" role="tab" aria-selected="false" data-category="urbana">Urbana & E-Bike</button>
+                    </div>
+
+                    <div class="search-sort-group">
+                        <div class="search-box">
+                            <label for="bike-search" class="sr-only">Pesquisar bicicleta</label>
+                            <input type="search" id="bike-search" placeholder="Buscar modelo, aro, carbono..." aria-label="Pesquisar bicicleta">
+                        </div>
+                        <div class="sort-box">
+                            <label for="sort-select" class="sr-only">Ordenar produtos</label>
+                            <select id="sort-select" aria-label="Ordenar bicicletas">
+                                <option value="destaque">Ordenar: Destaques</option>
+                                <option value="menor-preco">Menor Preço</option>
+                                <option value="maior-preco">Maior Preço</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade de Cartões de Produtos -->
+                <div class="product-grid" id="product-grid" aria-live="polite">
+                    <!-- Cartão 1 -->
+                    <article class="product-card" data-id="1" data-category="mtb" data-price="12890" data-title="Veloce Trail X-Pro Carbon Aro 29">
+                        <div class="card-badge">Mais Vendida</div>
+                        <img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Veloce Trail X-Pro Carbon preta e laranja">
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="card-category">Mountain Bike</span>
+                                <span class="card-rating" aria-label="Avaliação 4.9 de 5 estrelas">★ 4.9</span>
+                            </div>
+                            <h3>Veloce Trail X-Pro Carbon</h3>
+                            <p class="card-specs">Quadro Carbono T800 • Suspensão RockShox 140mm • Shimano Deore XT 12v</p>
+                            <div class="size-selector" role="group" aria-label="Tamanhos disponíveis">
+                                <span>Tamanhos:</span>
+                                <span class="size-pill">S</span>
+                                <span class="size-pill">M</span>
+                                <span class="size-pill">L</span>
+                                <span class="size-pill">XL</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-box">
+                                    <span class="price-old">R$ 14.990,00</span>
+                                    <span class="price-current">R$ 12.890,00</span>
+                                    <span class="price-installment">ou 12x de R$ 1.074,16</span>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn btn-outline btn-sm view-details" data-id="1" aria-label="Ver ficha técnica da Veloce Trail X-Pro Carbon">Detalhes</button>
+                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="1" data-name="Veloce Trail X-Pro Carbon" data-price="12890">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cartão 2 -->
+                    <article class="product-card" data-id="2" data-category="speed" data-price="16490" data-title="Veloce AeroCarbon RS 700c">
+                        <div class="card-badge">Novo 2026</div>
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Speed Veloce AeroCarbon RS">
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="card-category">Speed / Estrada</span>
+                                <span class="card-rating" aria-label="Avaliação 5.0 de 5 estrelas">★ 5.0</span>
+                            </div>
+                            <h3>Veloce AeroCarbon RS</h3>
+                            <p class="card-specs">Quadro Aero Carbono • Grupo Shimano 105 Di2 Eletrônico • Freios Hidráulicos</p>
+                            <div class="size-selector" role="group" aria-label="Tamanhos disponíveis">
+                                <span>Tamanhos:</span>
+                                <span class="size-pill">52</span>
+                                <span class="size-pill">54</span>
+                                <span class="size-pill">56</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-box">
+                                    <span class="price-old">R$ 18.500,00</span>
+                                    <span class="price-current">R$ 16.490,00</span>
+                                    <span class="price-installment">ou 12x de R$ 1.374,16</span>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn btn-outline btn-sm view-details" data-id="2" aria-label="Ver ficha técnica da Veloce AeroCarbon RS">Detalhes</button>
+                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="2" data-name="Veloce AeroCarbon RS" data-price="16490">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cartão 3 -->
+                    <article class="product-card" data-id="3" data-category="urbana" data-price="8490" data-title="Veloce E-City Volt 500W Elétrica">
+                        <div class="card-badge badge-eco">Eco-Mobilidade</div>
+                        <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Elétrica Urbana Veloce E-City Volt">
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="card-category">Urbana & E-Bike</span>
+                                <span class="card-rating" aria-label="Avaliação 4.8 de 5 estrelas">★ 4.8</span>
+                            </div>
+                            <h3>Veloce E-City Volt 500W</h3>
+                            <p class="card-specs">Motor Central 500W • Bateria Lítio 48V (90km) • Bagageiro e Painel LCD</p>
+                            <div class="size-selector" role="group" aria-label="Tamanhos disponíveis">
+                                <span>Tamanhos:</span>
+                                <span class="size-pill">Único Ajustável</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-box">
+                                    <span class="price-old">R$ 9.800,00</span>
+                                    <span class="price-current">R$ 8.490,00</span>
+                                    <span class="price-installment">ou 12x de R$ 707,50</span>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn btn-outline btn-sm view-details" data-id="3" aria-label="Ver ficha técnica da Veloce E-City Volt 500W">Detalhes</button>
+                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="3" data-name="Veloce E-City Volt 500W" data-price="8490">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cartão 4 -->
+                    <article class="product-card" data-id="4" data-category="mtb" data-price="2990" data-title="Veloce Peak Alumínio 6061 Aro 29">
+                        <img src="https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Mountain Bike Veloce Peak Alumínio">
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="card-category">Mountain Bike</span>
+                                <span class="card-rating" aria-label="Avaliação 4.7 de 5 estrelas">★ 4.7</span>
+                            </div>
+                            <h3>Veloce Peak Alumínio 6061</h3>
+                            <p class="card-specs">Alumínio Hidroformado • Trava no Guidão • Shimano Altus 24v • Aro 29</p>
+                            <div class="size-selector" role="group" aria-label="Tamanhos disponíveis">
+                                <span>Tamanhos:</span>
+                                <span class="size-pill">S</span>
+                                <span class="size-pill">M</span>
+                                <span class="size-pill">L</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-box">
+                                    <span class="price-old">R$ 3.600,00</span>
+                                    <span class="price-current">R$ 2.990,00</span>
+                                    <span class="price-installment">ou 12x de R$ 249,16</span>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn btn-outline btn-sm view-details" data-id="4" aria-label="Ver ficha técnica da Veloce Peak Alumínio 6061">Detalhes</button>
+                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="4" data-name="Veloce Peak Alumínio 6061" data-price="2990">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cartão 5 -->
+                    <article class="product-card" data-id="5" data-category="speed" data-price="7290" data-title="Veloce Strada Endurance Tiagra">
+                        <img src="https://images.unsplash.com/photo-1505705694340-019e1e335916?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Speed Veloce Strada Endurance">
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="card-category">Speed / Estrada</span>
+                                <span class="card-rating" aria-label="Avaliação 4.8 de 5 estrelas">★ 4.8</span>
+                            </div>
+                            <h3>Veloce Strada Endurance</h3>
+                            <p class="card-specs">Garfo em Carbono • Grupo Shimano Tiagra 20v • Geometria Conforto</p>
+                            <div class="size-selector" role="group" aria-label="Tamanhos disponíveis">
+                                <span>Tamanhos:</span>
+                                <span class="size-pill">50</span>
+                                <span class="size-pill">52</span>
+                                <span class="size-pill">54</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-box">
+                                    <span class="price-old">R$ 8.200,00</span>
+                                    <span class="price-current">R$ 7.290,00</span>
+                                    <span class="price-installment">ou 12x de R$ 607,50</span>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn btn-outline btn-sm view-details" data-id="5" aria-label="Ver ficha técnica da Veloce Strada Endurance">Detalhes</button>
+                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="5" data-name="Veloce Strada Endurance" data-price="7290">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Cartão 6 -->
+                    <article class="product-card" data-id="6" data-category="urbana" data-price="2490" data-title="Veloce Commuter Classic 7v">
+                        <div class="card-badge badge-eco">Urbana</div>
+                        <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Urbana Veloce Commuter Classic">
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="card-category">Urbana & E-Bike</span>
+                                <span class="card-rating" aria-label="Avaliação 4.6 de 5 estrelas">★ 4.6</span>
+                            </div>
+                            <h3>Veloce Commuter Classic 7v</h3>
+                            <p class="card-specs">Quadro Aço Chromoly • 7 Velocidades Shimano • Bagageiro e Para-lamas</p>
+                            <div class="size-selector" role="group" aria-label="Tamanhos disponíveis">
+                                <span>Tamanhos:</span>
+                                <span class="size-pill">M</span>
+                                <span class="size-pill">L</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-box">
+                                    <span class="price-old">R$ 2.950,00</span>
+                                    <span class="price-current">R$ 2.490,00</span>
+                                    <span class="price-installment">ou 12x de R$ 207,50</span>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn btn-outline btn-sm view-details" data-id="6" aria-label="Ver ficha técnica da Veloce Commuter Classic 7v">Detalhes</button>
+                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="6" data-name="Veloce Commuter Classic 7v" data-price="2490">Comprar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div id="no-results" class="no-results hidden">
+                    <p>Nenhuma bicicleta encontrada para os filtros selecionados.</p>
+                    <button id="reset-filters-btn" class="btn btn-outline">Limpar Filtros</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3: Cartões Explicativos (Diferenciais da Loja) -->
+        <section id="diferenciais" class="info-cards-section">
+            <div class="container">
+                <header class="section-header">
+                    <h2>Por que Escolher a VeloceBikes?</h2>
+                    <p>Compromisso técnico, segurança certificada ISO 4210 e suporte completo ao ciclista.</p>
+                </header>
+
+                <div class="info-grid">
+                    <article class="info-card">
+                        <div class="info-icon" aria-hidden="true">🛠️</div>
+                        <h3>Bike Fit Gratuito</h3>
+                        <p>Ajuste ergonômico personalizado na entrega para prevenir lesões e maximizar sua potência de pedalada.</p>
+                    </article>
+
+                    <article class="info-card">
+                        <div class="info-icon" aria-hidden="true">🛡️</div>
+                        <h3>Garantia Vitalícia no Quadro</h3>
+                        <p>Todos os quadros em carbono e alumínio possuem certificação internacional e cobertura estrutural vitalícia.</p>
+                    </article>
+
+                    <article class="info-card">
+                        <div class="info-icon" aria-hidden="true">🚚</div>
+                        <h3>Entrega Técnica Pronta</h3>
+                        <p>Sua bicicleta chega pré-montada, regulada por mecânicos certificados e com seguro total de transporte.</p>
+                    </article>
+
+                    <article class="info-card">
+                        <div class="info-icon" aria-hidden="true">♻️</div>
+                        <h3>Programa Trade-In</h3>
+                        <p>Use sua bicicleta usada como parte do pagamento na troca por qualquer modelo novo do nosso catálogo.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4: Contato com Formulário Acessível -->
+        <section id="contato" class="contact-section">
+            <div class="container contact-grid">
+                <div class="contact-info">
+                    <h2>Fale com Nossos Especialistas</h2>
+                    <p>Tem dúvidas sobre o tamanho ideal do quadro (S, M, L, XL) ou precisa de uma cotação personalizada? Envie sua mensagem.</p>
+                    <ul class="contact-details">
+                        <li><strong>Endereço:</strong> Setor de Indústrias Gráficas, Quadra 4 - Brasília/DF</li>
+                        <li><strong>Telefone / WhatsApp:</strong> (61) 3344-5566</li>
+                        <li><strong>E-mail:</strong> atendimento@velocebikes.com.br</li>
+                        <li><strong>Horário:</strong> Segunda a Sábado, das 08h às 19h</li>
+                    </ul>
+                </div>
+
+                <form id="contact-form" class="contact-form" novalidate>
+                    <h3>Envie uma Mensagem</h3>
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assunto">Interesse Principal</label>
+                        <select id="assunto" name="assunto">
+                            <option value="compra">Orientação de Compra / Tamanho de Quadro</option>
+                            <option value="manutencao">Agendamento de Revisão / Bike Fit</option>
+                            <option value="tradein">Avaliação Trade-In (Usada na Troca)</option>
+                            <option value="outro">Outros Assuntos</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem *</label>
+                        <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Descreva sua altura, tipo de pedal desejado ou dúvida..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Enviar Solicitação</button>
+                    <p id="form-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal 1: Página de Login / Cadastro -->
+    <div id="login-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="login-modal-title">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="login-modal-title">Acesso do Ciclista</h2>
+                <button class="close-modal" data-close="login-modal" aria-label="Fechar janela de login">&times;</button>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">E-mail cadastrado</label>
+                    <input type="email" id="login-email" required placeholder="ciclista@velocebikes.com.br">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" required placeholder="••••••••">
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember-me"> Manter conectado
+                    </label>
+                    <a href="#recuperar" class="forgot-link">Esqueci minha senha</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Entrar na Conta</button>
+                <p id="login-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 2: Carrinho de Compras Interativo -->
+    <div id="cart-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="cart-modal-title">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h2 id="cart-modal-title">Seu Carrinho de Compras</h2>
+                <button class="close-modal" data-close="cart-modal" aria-label="Fechar carrinho">&times;</button>
+            </div>
+            <div id="cart-items-container" class="cart-items-list">
+                <p class="empty-cart-msg">Seu carrinho está vazio no momento.</p>
+            </div>
+            <div class="cart-summary">
+                <div class="cart-total-row">
+                    <span>Total Estimado:</span>
+                    <strong id="cart-total-value">R$ 0,00</strong>
+                </div>
+                <button id="checkout-btn" class="btn btn-accent btn-block" disabled>Finalizar Pedido</button>
+                <p id="checkout-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Detalhes Técnicos do Produto -->
+    <div id="details-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="details-modal-title">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h2 id="details-modal-title">Ficha Técnica</h2>
+                <button class="close-modal" data-close="details-modal" aria-label="Fechar ficha técnica">&times;</button>
+            </div>
+            <div id="details-body"></div>
+        </div>
+    </div>
+
+    <!-- Rodapé Completo -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <span class="logo-text">Veloce<strong>Bikes</strong></span>
+                <p>Mobilidade, esporte e engenharia sobre duas rodas. Desenvolvido seguindo as diretrizes internacionais de acessibilidade WCAG 2.1 Nível AA.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#destaques">Destaques</a></li>
+                    <li><a href="#catalogo">Catálogo Completo</a></li>
+                    <li><a href="#diferenciais">Nossos Diferenciais</a></li>
+                    <li><a href="#contato">Central de Atendimento</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Institucional & Acessibilidade</h4>
+                <ul>
+                    <li><a href="#wcag">Declaração de Acessibilidade WCAG</a></li>
+                    <li><a href="#garantia">Política de Garantia Vitalícia</a></li>
+                    <li><a href="#privacidade">Privacidade e LGPD</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 VeloceBikes Comércio de Bicicletas Ltda. Todos os direitos reservados. Projeto Acadêmico - CEUB.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
