@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="VeloceBikes - E-commerce especializado em bicicletas de alta performance (MTB, Speed, Urbanas e E-Bikes) com acessibilidade WCAG 2.1 AA.">
     <title>VeloceBikes | Alta Performance e Mobilidade Sustentável</title>
+    <meta name="theme-color" content="#0F4C5C">
+    <meta name="color-scheme" content="light dark">
+    <meta property="og:title" content="VeloceBikes | Alta Performance e Mobilidade Sustentável">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🚲%3C/text%3E%3C/svg%3E">
+    <script>
+    /* Aplica tema, contraste e fonte antes da primeira pintura (evita "flash") */
+    (function(){try{var d=document.documentElement,s=localStorage;
+    d.setAttribute('data-theme',s.getItem('veloce-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));
+    if(s.getItem('veloce-contrast')==='high')d.setAttribute('data-contrast','high');
+    var f=Number(s.getItem('veloce-font-size'));if(f)d.style.setProperty('--font-size-base',f+'px');}catch(e){}})();
+    </script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +53,7 @@
                 <span class="logo-text">Veloce<strong>Bikes</strong></span>
             </a>
 
-            <nav class="main-nav" aria-label="Navegação Principal">
+            <nav class="main-nav" id="main-nav" aria-label="Navegação Principal">
                 <ul>
                     <li><a href="#destaques">Destaques</a></li>
                     <li><a href="#catalogo">Catálogo</a></li>
@@ -51,6 +63,7 @@
             </nav>
 
             <div class="header-actions">
+                <button id="menu-toggle" class="btn btn-outline menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
                 <button id="open-login-btn" class="btn btn-outline" aria-haspopup="dialog">
                     <span id="user-greeting">Entrar / Conta</span>
                 </button>
@@ -68,7 +81,7 @@
                 <div class="carousel-slides" id="carousel-slides">
                     <!-- Slide 1 -->
                     <article class="carousel-slide active" aria-hidden="false">
-                        <img src="https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=1400&q=80" alt="Ciclista percorrendo trilha em montanha com bicicleta Mountain Bike Pro">
+                        <img fetchpriority="high" src="https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=1400&q=80" alt="Ciclista percorrendo trilha em montanha com bicicleta Mountain Bike Pro">
                         <div class="slide-overlay">
                             <div class="container">
                                 <span class="badge">Lançamento 2026</span>
@@ -81,7 +94,7 @@
 
                     <!-- Slide 2 -->
                     <article class="carousel-slide" aria-hidden="true">
-                        <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1400&q=80" alt="Bicicleta de estrada aerodinâmica estacionada ao pôr do sol">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1400&q=80" alt="Bicicleta de estrada aerodinâmica estacionada ao pôr do sol">
                         <div class="slide-overlay">
                             <div class="container">
                                 <span class="badge">Alta Velocidade</span>
@@ -94,7 +107,7 @@
 
                     <!-- Slide 3 -->
                     <article class="carousel-slide" aria-hidden="true">
-                        <img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=1400&q=80" alt="Bicicleta urbana elétrica moderna em ciclovia arborizada">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=1400&q=80" alt="Bicicleta urbana elétrica moderna em ciclovia arborizada">
                         <div class="slide-overlay">
                             <div class="container">
                                 <span class="badge">Mobilidade Urbana</span>
@@ -108,6 +121,7 @@
 
                 <button class="carousel-control prev" id="prev-slide" aria-label="Slide anterior">&#10094;</button>
                 <button class="carousel-control next" id="next-slide" aria-label="Próximo slide">&#10095;</button>
+                <button class="carousel-control pause" id="pause-slide" aria-label="Pausar rotação automática">❚❚</button>
 
                 <div class="carousel-indicators" role="tablist" aria-label="Selecionar slide">
                     <button class="indicator active" data-slide="0" role="tab" aria-selected="true" aria-label="Slide 1: Mountain Bike"></button>
@@ -127,11 +141,11 @@
 
                 <!-- Barra de Busca, Abas de Categoria e Ordenação -->
                 <div class="filter-bar">
-                    <div class="category-tabs" role="tablist" aria-label="Filtrar bicicletas por categoria">
-                        <button class="tab-btn active" role="tab" aria-selected="true" data-category="todas">Todas (6)</button>
-                        <button class="tab-btn" role="tab" aria-selected="false" data-category="mtb">Mountain Bike</button>
-                        <button class="tab-btn" role="tab" aria-selected="false" data-category="speed">Speed / Estrada</button>
-                        <button class="tab-btn" role="tab" aria-selected="false" data-category="urbana">Urbana & E-Bike</button>
+                    <div class="category-tabs" role="group" aria-label="Filtrar bicicletas por categoria">
+                        <button class="tab-btn active" aria-pressed="true" data-category="todas">Todas (6)</button>
+                        <button class="tab-btn" aria-pressed="false" data-category="mtb">Mountain Bike</button>
+                        <button class="tab-btn" aria-pressed="false" data-category="speed">Speed / Estrada</button>
+                        <button class="tab-btn" aria-pressed="false" data-category="urbana">Urbana & E-Bike</button>
                     </div>
 
                     <div class="search-sort-group">
@@ -151,11 +165,12 @@
                 </div>
 
                 <!-- Grade de Cartões de Produtos -->
-                <div class="product-grid" id="product-grid" aria-live="polite">
+                <p id="result-count" class="sr-only" role="status" aria-live="polite"></p>
+                <div class="product-grid" id="product-grid">
                     <!-- Cartão 1 -->
                     <article class="product-card" data-id="1" data-category="mtb" data-price="12890" data-title="Veloce Trail X-Pro Carbon Aro 29">
                         <div class="card-badge">Mais Vendida</div>
-                        <img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Veloce Trail X-Pro Carbon preta e laranja">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Veloce Trail X-Pro Carbon preta e laranja">
                         <div class="card-body">
                             <div class="card-meta">
                                 <span class="card-category">Mountain Bike</span>
@@ -178,7 +193,7 @@
                                 </div>
                                 <div class="card-actions">
                                     <button class="btn btn-outline btn-sm view-details" data-id="1" aria-label="Ver ficha técnica da Veloce Trail X-Pro Carbon">Detalhes</button>
-                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="1" data-name="Veloce Trail X-Pro Carbon" data-price="12890">Comprar</button>
+                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="1" data-name="Veloce Trail X-Pro Carbon" data-price="12890">Adicionar</button>
                                 </div>
                             </div>
                         </div>
@@ -187,7 +202,7 @@
                     <!-- Cartão 2 -->
                     <article class="product-card" data-id="2" data-category="speed" data-price="16490" data-title="Veloce AeroCarbon RS 700c">
                         <div class="card-badge">Novo 2026</div>
-                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Speed Veloce AeroCarbon RS">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Speed Veloce AeroCarbon RS">
                         <div class="card-body">
                             <div class="card-meta">
                                 <span class="card-category">Speed / Estrada</span>
@@ -209,7 +224,7 @@
                                 </div>
                                 <div class="card-actions">
                                     <button class="btn btn-outline btn-sm view-details" data-id="2" aria-label="Ver ficha técnica da Veloce AeroCarbon RS">Detalhes</button>
-                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="2" data-name="Veloce AeroCarbon RS" data-price="16490">Comprar</button>
+                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="2" data-name="Veloce AeroCarbon RS" data-price="16490">Adicionar</button>
                                 </div>
                             </div>
                         </div>
@@ -218,7 +233,7 @@
                     <!-- Cartão 3 -->
                     <article class="product-card" data-id="3" data-category="urbana" data-price="8490" data-title="Veloce E-City Volt 500W Elétrica">
                         <div class="card-badge badge-eco">Eco-Mobilidade</div>
-                        <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Elétrica Urbana Veloce E-City Volt">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Elétrica Urbana Veloce E-City Volt">
                         <div class="card-body">
                             <div class="card-meta">
                                 <span class="card-category">Urbana & E-Bike</span>
@@ -238,7 +253,7 @@
                                 </div>
                                 <div class="card-actions">
                                     <button class="btn btn-outline btn-sm view-details" data-id="3" aria-label="Ver ficha técnica da Veloce E-City Volt 500W">Detalhes</button>
-                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="3" data-name="Veloce E-City Volt 500W" data-price="8490">Comprar</button>
+                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="3" data-name="Veloce E-City Volt 500W" data-price="8490">Adicionar</button>
                                 </div>
                             </div>
                         </div>
@@ -246,7 +261,7 @@
 
                     <!-- Cartão 4 -->
                     <article class="product-card" data-id="4" data-category="mtb" data-price="2990" data-title="Veloce Peak Alumínio 6061 Aro 29">
-                        <img src="https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Mountain Bike Veloce Peak Alumínio">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Mountain Bike Veloce Peak Alumínio">
                         <div class="card-body">
                             <div class="card-meta">
                                 <span class="card-category">Mountain Bike</span>
@@ -268,7 +283,7 @@
                                 </div>
                                 <div class="card-actions">
                                     <button class="btn btn-outline btn-sm view-details" data-id="4" aria-label="Ver ficha técnica da Veloce Peak Alumínio 6061">Detalhes</button>
-                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="4" data-name="Veloce Peak Alumínio 6061" data-price="2990">Comprar</button>
+                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="4" data-name="Veloce Peak Alumínio 6061" data-price="2990">Adicionar</button>
                                 </div>
                             </div>
                         </div>
@@ -276,7 +291,7 @@
 
                     <!-- Cartão 5 -->
                     <article class="product-card" data-id="5" data-category="speed" data-price="7290" data-title="Veloce Strada Endurance Tiagra">
-                        <img src="https://images.unsplash.com/photo-1505705694340-019e1e335916?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Speed Veloce Strada Endurance">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1505705694340-019e1e335916?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Speed Veloce Strada Endurance">
                         <div class="card-body">
                             <div class="card-meta">
                                 <span class="card-category">Speed / Estrada</span>
@@ -298,7 +313,7 @@
                                 </div>
                                 <div class="card-actions">
                                     <button class="btn btn-outline btn-sm view-details" data-id="5" aria-label="Ver ficha técnica da Veloce Strada Endurance">Detalhes</button>
-                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="5" data-name="Veloce Strada Endurance" data-price="7290">Comprar</button>
+                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="5" data-name="Veloce Strada Endurance" data-price="7290">Adicionar</button>
                                 </div>
                             </div>
                         </div>
@@ -307,7 +322,7 @@
                     <!-- Cartão 6 -->
                     <article class="product-card" data-id="6" data-category="urbana" data-price="2490" data-title="Veloce Commuter Classic 7v">
                         <div class="card-badge badge-eco">Urbana</div>
-                        <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Urbana Veloce Commuter Classic">
+                        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=600&q=80" alt="Bicicleta Urbana Veloce Commuter Classic">
                         <div class="card-body">
                             <div class="card-meta">
                                 <span class="card-category">Urbana & E-Bike</span>
@@ -328,7 +343,7 @@
                                 </div>
                                 <div class="card-actions">
                                     <button class="btn btn-outline btn-sm view-details" data-id="6" aria-label="Ver ficha técnica da Veloce Commuter Classic 7v">Detalhes</button>
-                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="6" data-name="Veloce Commuter Classic 7v" data-price="2490">Comprar</button>
+                                    <button class="btn btn-primary btn-sm add-to-cart" data-id="6" data-name="Veloce Commuter Classic 7v" data-price="2490">Adicionar</button>
                                 </div>
                             </div>
                         </div>
@@ -396,12 +411,12 @@
                     <h3>Envie uma Mensagem</h3>
                     <div class="form-group">
                         <label for="nome">Nome Completo *</label>
-                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+                        <input type="text" id="nome" name="nome" required autocomplete="name" placeholder="Digite seu nome completo">
                     </div>
 
                     <div class="form-group">
                         <label for="email">E-mail *</label>
-                        <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+                        <input type="email" id="email" name="email" required autocomplete="email" placeholder="seuemail@exemplo.com">
                     </div>
 
                     <div class="form-group">
@@ -433,14 +448,14 @@
                 <h2 id="login-modal-title">Acesso do Ciclista</h2>
                 <button class="close-modal" data-close="login-modal" aria-label="Fechar janela de login">&times;</button>
             </div>
-            <form id="login-form">
+            <form id="login-form" novalidate>
                 <div class="form-group">
                     <label for="login-email">E-mail cadastrado</label>
-                    <input type="email" id="login-email" required placeholder="ciclista@velocebikes.com.br">
+                    <input type="email" id="login-email" required autocomplete="email" placeholder="ciclista@velocebikes.com.br">
                 </div>
                 <div class="form-group">
                     <label for="login-password">Senha</label>
-                    <input type="password" id="login-password" required placeholder="••••••••">
+                    <input type="password" id="login-password" required autocomplete="current-password" placeholder="••••••••">
                 </div>
                 <div class="form-options">
                     <label class="checkbox-label">
